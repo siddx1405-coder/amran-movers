@@ -1,0 +1,10 @@
+{
+  "description": "Capture and store customer details securely for project tracking, enabling users to manage client information efficiently until project completion.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

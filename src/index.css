@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "DM Serif Display", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f7f5f0;
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+}
+
+.hero-grid > div:first-child {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.95) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.95) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.section-pad {
+  padding-block: 6.5rem;
+}
+
+.eyebrow {
+  color: #b46d00;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: #12233d;
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.35rem, 4.3vw, 4rem);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.service-card {
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid #dfddd7;
+  border-radius: 18px;
+  background: #fff;
+  padding: 1.75rem;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: #efc779;
+  box-shadow: 0 18px 50px rgba(19, 38, 66, 0.09);
+}
+
+.work-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #d9d7d0;
+}
+
+.work-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.work-card:hover img {
+  transform: scale(1.04);
+}
+
+.work-card::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(transparent 55%, rgba(7, 20, 38, 0.82));
+}
+
+.work-card figcaption {
+  position: absolute;
+  z-index: 1;
+  bottom: 1.2rem;
+  left: 1.3rem;
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  color: #26364e;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.form-label input,
+.form-label select,
+.form-label textarea {
+  width: 100%;
+  border: 1px solid #d8dce2;
+  border-radius: 9px;
+  background: #fafafa;
+  padding: 0.85rem 0.95rem;
+  color: #12233d;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.form-label input:focus,
+.form-label select:focus,
+.form-label textarea:focus {
+  border-color: #d8941e;
+  box-shadow: 0 0 0 3px rgba(244, 166, 36, 0.15);
+  outline: none;
+}
+
+.form-label textarea {
+  resize: vertical;
+}
+
+@media (max-width: 767px) {
+  .section-pad {
+    padding-block: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
