@@ -10,12 +10,6 @@ const customerImages = {
   boxesTruck: "/images/customer/385fafdc-16c0-4751-b99a-8a323982ca2b.png",
 };
 
-const topImages = {
-  hero: "/images/top/doha-movers.png",
-  tools: "/images/top/repair-tools.png",
-  packing: "/images/top/packing-boxes.png",
-};
-
 function Icon({
   children,
   size = 22,
@@ -263,45 +257,12 @@ function App() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-[570px]">
-              <div className="absolute -left-4 -top-4 h-28 w-28 rounded-3xl border border-[#f4a624]/35" />
-              <div className="relative h-[420px] overflow-hidden rounded-[28px] border border-white/10 bg-[#f1f1ee] p-2 shadow-2xl shadow-black/30 sm:h-[520px]">
-                <div className="absolute -left-6 top-4 h-[58%] w-[62%] overflow-hidden rounded-[30px] border-4 border-white bg-white shadow-2xl shadow-black/20">
-                  <img
-                    alt="Doha movers promotional banner"
-                    className="h-full w-full object-cover object-center"
-                    src={topImages.hero}
-                    style={{ objectPosition: "center top" }}
-                  />
-                </div>
-                <div className="absolute right-2 top-5 h-[38%] w-[49%] overflow-hidden rounded-[26px] border-4 border-white bg-white shadow-xl shadow-black/20">
-                  <img
-                    alt="Home repair and tools service"
-                    className="h-full w-full object-cover object-center"
-                    src={topImages.tools}
-                    style={{ objectPosition: "center center" }}
-                  />
-                </div>
-                <div className="absolute bottom-5 left-10 h-[32%] w-[44%] overflow-hidden rounded-[24px] border-4 border-white bg-white shadow-xl shadow-black/20">
-                  <img
-                    alt="Packing and moving service"
-                    className="h-full w-full object-cover object-center"
-                    src={topImages.packing}
-                    style={{ objectPosition: "center center" }}
-                  />
-                </div>
-                <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-[#0b1d35]/90 p-4 backdrop-blur sm:inset-x-auto sm:left-6 sm:flex sm:items-center sm:gap-4">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#f4a624] text-[#0b1d35]">{icons.pin}</span>
-                  <div className="mt-3 sm:mt-0">
-                    <span className="block text-xs text-white/55">Based in</span>
-                    <strong className="text-sm">Najma, Souq Haraj</strong>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-6 -right-3 rounded-2xl bg-white px-5 py-4 text-[#0b1d35] shadow-xl sm:right-[-24px]">
-                <strong className="block text-2xl font-extrabold">All Qatar</strong>
-                <span className="text-xs font-semibold text-[#677386]">Door-to-door service</span>
-              </div>
+            <div className="mx-auto w-full max-w-[420px]">
+              <img
+                alt="Amran Movers promotional poster with moving services and contact details"
+                className="h-auto w-full rounded-[28px] shadow-2xl shadow-black/30"
+                src="/images/top/amran-movers-promo.png"
+              />
             </div>
           </div>
         </section>
@@ -371,6 +332,19 @@ function App() {
                 </figcaption>
               </figure>
               <div className="grid gap-4 sm:grid-cols-2">
+                <article className="flex flex-col items-center gap-4 rounded-2xl border border-[#e5e2dc] bg-[#fdfcf9] p-5 sm:col-span-2 sm:flex-row">
+                  <img
+                    alt="Home repair and carpentry tools"
+                    className="h-36 w-36 shrink-0 object-contain"
+                    src="/images/top/carpentry-tools.png"
+                  />
+                  <div>
+                    <h3 className="font-extrabold tracking-tight text-[#12233d]">Carpentry and home repairs</h3>
+                    <p className="mt-2 text-sm leading-6 text-[#697383]">
+                      Get help with furniture assembly, fittings, and small household repairs.
+                    </p>
+                  </div>
+                </article>
                 {carpentryServices.map((service) => (
                   <article className="rounded-2xl border border-[#e5e2dc] bg-[#fdfcf9] p-5" key={service.title}>
                     <h3 className="font-extrabold tracking-tight text-[#12233d]">{service.title}</h3>
