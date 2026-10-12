@@ -10,6 +10,12 @@ const customerImages = {
   boxesTruck: "/images/customer/385fafdc-16c0-4751-b99a-8a323982ca2b.png",
 };
 
+const topImages = {
+  hero: "/images/top/doha-movers.png",
+  tools: "/images/top/repair-tools.png",
+  packing: "/images/top/packing-boxes.png",
+};
+
 function Icon({
   children,
   size = 22,
@@ -135,6 +141,41 @@ const services = [
   },
 ];
 
+const carpentryServices = [
+  {
+    title: "Cabinet & shelf installation",
+    text: "Secure fitting for cabinets, shelves, and storage units in your home or workplace.",
+  },
+  {
+    title: "Curtain & blind fitting",
+    text: "Careful measuring and installation to help your window coverings sit just right.",
+  },
+  {
+    title: "TV mounting & wall drilling",
+    text: "Neat wall mounting for televisions and fixtures, with placement planned around your space.",
+  },
+  {
+    title: "Door & lock repairs",
+    text: "Help with fitting and adjusting doors, handles, and locks around the property.",
+  },
+  {
+    title: "Wall & kitchen racks",
+    text: "Practical rack installation to make better use of kitchen and storage space.",
+  },
+  {
+    title: "Mirror & fixture hanging",
+    text: "Careful hanging of mirrors and other wall fixtures with secure fittings.",
+  },
+  {
+    title: "Sink repairs & fitting",
+    text: "Assistance with sink installation and minor repairs to kitchen and bathroom fixtures.",
+  },
+  {
+    title: "Furniture assembly & fixes",
+    text: "Assembly, adjustments, and small carpentry jobs for apartments, homes, and offices.",
+  },
+];
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -142,11 +183,11 @@ function App() {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const message = [
-      "Hello Amran Movers, I would like a free moving quote.",
+      "Hello Amran Movers, I would like a free quote.",
       `Name: ${form.get("name")}`,
       `Phone: ${form.get("phone")}`,
       `Service: ${form.get("service")}`,
-      `Move details: ${form.get("details") || "Not provided"}`,
+      `Request details: ${form.get("details") || "Not provided"}`,
     ].join("\n");
     window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`, "_blank");
   }
@@ -164,7 +205,7 @@ function App() {
           </a>
 
           <nav className="hidden items-center gap-8 text-sm font-semibold lg:flex" aria-label="Main navigation">
-            {["Home", "Services", "About", "Our Work", "Contact"].map((item) => (
+            {["Home", "Services", "Carpentry", "About", "Our Work", "Contact"].map((item) => (
               <a className="transition hover:text-[#f4a624]" href={`#${item.toLowerCase().replace(" ", "-")}`} key={item}>
                 {item}
               </a>
@@ -180,7 +221,7 @@ function App() {
         </div>
         {menuOpen && (
           <nav className="border-t border-white/10 bg-[#0b1d35] px-5 py-5 lg:hidden" aria-label="Mobile navigation">
-            {["Home", "Services", "About", "Our Work", "Contact"].map((item) => (
+            {["Home", "Services", "Carpentry", "About", "Our Work", "Contact"].map((item) => (
               <a className="block border-b border-white/10 py-3 text-sm font-semibold" href={`#${item.toLowerCase().replace(" ", "-")}`} key={item} onClick={() => setMenuOpen(false)}>
                 {item}
               </a>
@@ -196,13 +237,13 @@ function App() {
             <div>
               <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.07] px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#f8c363]">
                 <span className="h-2 w-2 rounded-full bg-[#f4a624]" />
-                Reliable movers across Qatar
+                Best prices on services across Qatar
               </div>
               <h1 className="max-w-2xl font-display text-5xl leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-[76px]">
-                Your move, made <span className="text-[#f4a624]">simple.</span>
+                Best prices for <span className="text-[#f4a624]">moving & more.</span>
               </h1>
               <p className="mt-7 max-w-xl text-base leading-7 text-white/70 sm:text-lg">
-                Professional moving, packing, transport, and carpentry services for homes, villas, and offices throughout Qatar.
+                Affordable moving, shifting, packing, carpentry, and transport for apartments, homes, and offices across Qatar.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#f4a624] px-6 py-4 text-sm font-extrabold text-[#0b1d35] transition hover:-translate-y-0.5 hover:bg-[#ffbd4d]" href="#quote">
@@ -213,7 +254,7 @@ function App() {
                 </a>
               </div>
               <div className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-white/65">
-                {["Careful handling", "Fair pricing", "Available daily"].map((item) => (
+                {["Careful handling", "Best-value pricing", "Available daily"].map((item) => (
                   <span className="flex items-center gap-2" key={item}>
                     <span className="grid h-5 w-5 place-items-center rounded-full bg-[#f4a624] text-[#0b1d35]">{icons.check}</span>
                     {item}
@@ -224,12 +265,31 @@ function App() {
 
             <div className="relative mx-auto w-full max-w-[570px]">
               <div className="absolute -left-4 -top-4 h-28 w-28 rounded-3xl border border-[#f4a624]/35" />
-              <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/10 p-2 shadow-2xl shadow-black/30">
-                <img
-                  alt="Packed boxes ready for a professional move"
-                  className="h-[420px] w-full rounded-[22px] object-cover sm:h-[520px]"
-                  src="/images/hero-moving-boxes.jpg"
-                />
+              <div className="relative h-[420px] overflow-hidden rounded-[28px] border border-white/10 bg-[#f1f1ee] p-2 shadow-2xl shadow-black/30 sm:h-[520px]">
+                <div className="absolute -left-6 top-4 h-[58%] w-[62%] overflow-hidden rounded-[30px] border-4 border-white bg-white shadow-2xl shadow-black/20">
+                  <img
+                    alt="Doha movers promotional banner"
+                    className="h-full w-full object-cover object-center"
+                    src={topImages.hero}
+                    style={{ objectPosition: "center top" }}
+                  />
+                </div>
+                <div className="absolute right-2 top-5 h-[38%] w-[49%] overflow-hidden rounded-[26px] border-4 border-white bg-white shadow-xl shadow-black/20">
+                  <img
+                    alt="Home repair and tools service"
+                    className="h-full w-full object-cover object-center"
+                    src={topImages.tools}
+                    style={{ objectPosition: "center center" }}
+                  />
+                </div>
+                <div className="absolute bottom-5 left-10 h-[32%] w-[44%] overflow-hidden rounded-[24px] border-4 border-white bg-white shadow-xl shadow-black/20">
+                  <img
+                    alt="Packing and moving service"
+                    className="h-full w-full object-cover object-center"
+                    src={topImages.packing}
+                    style={{ objectPosition: "center center" }}
+                  />
+                </div>
                 <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-[#0b1d35]/90 p-4 backdrop-blur sm:inset-x-auto sm:left-6 sm:flex sm:items-center sm:gap-4">
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-[#f4a624] text-[#0b1d35]">{icons.pin}</span>
                   <div className="mt-3 sm:mt-0">
@@ -285,6 +345,46 @@ function App() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="bg-white section-pad" id="carpentry">
+          <div className="mx-auto max-w-7xl px-5 lg:px-8">
+            <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+              <div>
+                <span className="eyebrow">Fitting & repairs</span>
+                <h2 className="section-title mt-4">Carpentry and handyman services.</h2>
+              </div>
+              <p className="max-w-md text-sm leading-6 text-[#667085]">
+                From shelves and curtain rails to TV mounting and minor fixture repairs, get help with the jobs that make a space work better.
+              </p>
+            </div>
+            <div className="mt-12 grid items-center gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+              <figure className="overflow-hidden rounded-[24px] border border-[#e5e2dc] bg-[#f7f5f0] p-4">
+                <img
+                  alt="Amran Movers promotional collage featuring moving, packing, carpentry, and transport services"
+                  className="mx-auto max-h-[440px] w-full object-contain"
+                  src="/images/moving-carpentry-promo.png"
+                />
+                <figcaption className="px-2 pb-2 pt-4 text-center text-sm font-extrabold text-[#12233d]">
+                  Moving, packing, transport & carpentry
+                </figcaption>
+              </figure>
+              <div className="grid gap-4 sm:grid-cols-2">
+                {carpentryServices.map((service) => (
+                  <article className="rounded-2xl border border-[#e5e2dc] bg-[#fdfcf9] p-5" key={service.title}>
+                    <h3 className="font-extrabold tracking-tight text-[#12233d]">{service.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-[#697383]">{service.text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <a
+              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-[#f4a624] px-5 py-3 text-sm font-extrabold text-[#0b1d35] transition hover:bg-[#ffbd4d]"
+              href="#quote"
+            >
+              Ask about a fitting or repair {icons.arrow}
+            </a>
           </div>
         </section>
 
@@ -357,9 +457,9 @@ function App() {
           <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
             <div>
               <span className="eyebrow !text-[#f4a624]">Free estimate</span>
-              <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">Tell us about your move.</h2>
+              <h2 className="mt-4 font-display text-4xl leading-tight sm:text-5xl">Tell us what you need.</h2>
               <p className="mt-5 max-w-md text-sm leading-6 text-white/65">
-                Share a few details and we’ll open WhatsApp with your request ready to send.
+                Tell us what you need and we’ll open WhatsApp with your request ready to send.
               </p>
               <div className="mt-8 space-y-4 text-sm">
                 <a className="flex items-center gap-3 font-bold transition hover:text-[#f4a624]" href={`tel:${phone}`}>{icons.phone} {phone}</a>
@@ -384,13 +484,13 @@ function App() {
                   <option>Office relocation</option>
                   <option>Packing and unpacking</option>
                   <option>Transport or pickup</option>
-                  <option>Carpentry service</option>
+                  <option>Carpentry and handyman service</option>
                   <option>Loading and unloading</option>
                 </select>
               </label>
               <label className="form-label sm:col-span-2">
-                Move details
-                <textarea name="details" placeholder="From where, to where, and preferred date" rows={3} />
+                Project details
+                <textarea name="details" placeholder="Tell us about your move, fitting, repair, or preferred date" rows={3} />
               </label>
               <button className="mt-1 inline-flex items-center justify-center gap-2 rounded-lg bg-[#f4a624] px-6 py-4 text-sm font-extrabold transition hover:bg-[#ffbd4d] sm:col-span-2" type="submit">
                 Request quote on WhatsApp {icons.arrow}

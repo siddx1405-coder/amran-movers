@@ -1,7 +1,12 @@
 {
-  "description": "Capture and store customer details securely for project tracking, enabling users to manage client information efficiently until project completion.",
+  "title": "Amran Movers & Packers | Moving, Packing & Carpentry in Qatar",
+  "description": "Affordable home and office moving, shifting, packing, carpentry, furniture assembly, and transport services across Qatar. Call 33939120 or WhatsApp 30138639.",
+  "language": "en",
+  "openGraph": {
+    "image": "/images/moving-carpentry-promo.png"
+  },
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
